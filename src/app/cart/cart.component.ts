@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
+  FormControl,
   Validators
 } from '@angular/forms';
 
@@ -44,6 +45,10 @@ export class CartComponent implements OnInit {
     this.checkoutForm.patchValue({
       name: 'John Doe'
     });
+  }
+
+  get name() {
+    return this.checkoutForm.get('name') as FormControl;
   }
 
   ngOnInit() {
