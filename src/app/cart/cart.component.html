@@ -22,5 +22,18 @@
     </div>
 
     <button class="button" type="submit">Purchase</button>
+    <p>
+        <button class="button" type="button" (click)="setDefault()">Reset</button>
+    </p>
 
 </form>
+
+<div>
+    <h3>Customer</h3>
+    <p>
+        Name: {{ checkoutForm.controls.name.value }}
+    </p>
+    <p>
+        Address: {{ checkoutForm.controls.address.value }}
+    </p>
+</div>
