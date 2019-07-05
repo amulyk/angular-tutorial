@@ -62,6 +62,15 @@
 
 <div>
     <h3>Errors:</h3>
+
+    <div *ngIf="address.errors?.zipStatus?.inValid && (zip.dirty || zip.touched)">
+        Zip length should be less than 3
+    </div>
+
+    <div *ngIf="address.errors?.cityStatus?.inValid && (city.dirty || city.touched)">
+        City name should start from letter A
+    </div>
+
     <div *ngIf="name.invalid && (name.dirty || name.touched)">
 
         <div *ngIf="name.errors.required">
@@ -73,7 +82,6 @@
         <div *ngIf="name.errors.forbiddenName?.isValid">
             Name can't be {{name.value}}
         </div>
-
     </div>
 
 </div>
