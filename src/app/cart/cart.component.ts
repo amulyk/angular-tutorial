@@ -23,7 +23,7 @@ export class CartComponent implements OnInit {
     this.items = this.cartService.getItems();
 
     this.checkoutForm = this.formBuilder.group({
-      name: ['', [Validators.minLength(2)]],
+      name: ['', [this.forbiddenName(), Validators.minLength(2)]],
       address: this.formBuilder.group({
         street: '',
         city: '',
@@ -31,6 +31,12 @@ export class CartComponent implements OnInit {
         zip: ''
       })
     });
+  }
+
+  forbiddenName() {
+    return (formControl) => {
+      return formControl.value === 'Oliver' ? {forbiddenName: {isValid: true}} : null;
+    };
   }
 
   onSubmit(customerData) {

@@ -70,6 +70,10 @@
         <div *ngIf="name.errors.minlength">
             Name must be at least 4 characters long.
         </div>
+        <div *ngIf="name.errors.forbiddenName?.isValid">
+            Name can't be {{name.value}}
+        </div>
 
     </div>
+
 </div>
