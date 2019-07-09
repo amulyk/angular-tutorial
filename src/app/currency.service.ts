@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { data } from './rates';
-import {from} from 'rxjs';
+import {from, Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,7 @@ export class CurrencyService {
   constructor() {
     this.result = this.transformObjectToArray(data.rates);
 
-    this.Observer = from(this.result);
+    this.Observer = new Observable(this.subscribe());
   }
 
   transformObjectToArray(obj) {
@@ -34,25 +34,26 @@ export class CurrencyService {
     return items;
   }
 
-  subscribe(next, complete) {
-    console.log('Our subscribe method');
-    let i = 0;
-    const size = this.result.length;
+  subscribe() {
+    return (subsriber) => {
+      let i = 0;
+      const size = this.result.length;
 
-    for (const item of this.result) {
-      if (i < size) {
-        setTimeout(() => {
-          next(item);
-        }, i * 500);
+      for (const item of this.result) {
+        if (i < size) {
+          setTimeout(() => {
+            subsriber.next(item);
+          }, i * 500);
+        }
+
+        i++;
       }
 
-      i++;
-    }
-
-    if (i === size) {
-      setTimeout(() => {
-        complete(size);
-      }, i * 500);
-    }
+      if (i === size) {
+        setTimeout(() => {
+          subsriber.complete();
+        }, i * 500);
+      }
+    };
   }
 }
