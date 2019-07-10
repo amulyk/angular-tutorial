@@ -13,6 +13,10 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { CartComponent } from './cart/cart.component';
 import { ShippingComponent } from './shipping/shipping.component';
 import { CurrencyComponent } from './currency/currency.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { NewsComponent } from './news/news.component';
+import { ArticleComponent } from './article/article.component';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,11 @@ import { CurrencyComponent } from './currency/currency.component';
     ProductDetailsComponent,
     CartComponent,
     ShippingComponent,
-    CurrencyComponent
+    CurrencyComponent,
+    DashboardComponent,
+    NewsComponent,
+    ArticleComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +43,10 @@ import { CurrencyComponent } from './currency/currency.component';
       { path: 'cart', component: CartComponent },
       { path: 'shipping', component: ShippingComponent },
       { path: 'currency', component: CurrencyComponent },
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'dashboard/news', component: NewsComponent },
+      { path: 'dashboard/news/:articleId', component: ArticleComponent },
+      { path: 'error', component: ErrorPageComponent }
     ]),
     ReactiveFormsModule,
     FormsModule
