@@ -13,6 +13,7 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { CartComponent } from './cart/cart.component';
 import { ShippingComponent } from './shipping/shipping.component';
 import { CurrencyComponent } from './currency/currency.component';
+import { ShippingService } from './shipping.service';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,7 @@ import { CurrencyComponent } from './currency/currency.component';
     ]),
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [ShippingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
