@@ -1,24 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit, Output} from '@angular/core';
 
 import { ShippingService } from '../shipping.service';
 
 @Component({
-  providers: [ShippingService],
   selector: 'app-shipping',
   templateUrl: './shipping.component.html',
   styleUrls: ['./shipping.component.scss']
 })
 export class ShippingComponent implements OnInit {
   shippingCosts;
+  selectedShipping;
 
   constructor(
     private shippingService: ShippingService
   ) {
     this.shippingCosts = this.shippingService.getShippingPrices();
-  }
-
-  get selectedShipping() {
-    return this.shippingService.getType();
+    this.selectedShipping = this.shippingService.getType();
   }
 
   selectShipping(value) {
