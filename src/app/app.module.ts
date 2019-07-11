@@ -43,21 +43,38 @@ import { AuthGuard } from './auth.guard';
     HttpClientModule,
     AppRoutingModule,
     RouterModule.forRoot([
-      { path: '', component: ProductListComponent },
-      { path: 'products/:productId', component: ProductDetailsComponent },
-      { path: 'cart', component: CartComponent },
-      { path: 'shipping', component: ShippingComponent },
-      { path: 'currency', component: CurrencyComponent },
-      { path: 'dashboard', component: DashboardComponent },
-      { path: 'dashboard/news', component: NewsComponent },
-      { path: 'dashboard/news/:articleId', component: ArticleComponent },
-      { path: 'error', component: ErrorPageComponent },
-      { path: 'guard', component: GuardComponent },
+      { path: '', data: { name: 'Home'}, component: ProductListComponent },
+      { path: 'products/:productId', data: { name: 'Product'}, component: ProductDetailsComponent },
+      { path: 'cart', data: { name: 'Cart'}, component: CartComponent },
+      { path: 'shipping', data: { name: 'Shipping'}, component: ShippingComponent },
+      { path: 'currency', data: { name: 'Currency'}, component: CurrencyComponent },
+      {
+        path: 'dashboard',
+        data: { name: 'Dashboard'},
+        component: DashboardComponent,
+      },
+      {
+        path: 'dashboard/news',
+        data: { name: 'News'},
+        component: NewsComponent,
+      },
+      {
+        path: 'dashboard/news/:articleId',
+        data: { name: 'Article'},
+        component: ArticleComponent
+      },
+      {
+        path: 'guard',
+        data: { name: 'Article'},
+        component: GuardComponent
+      },
       {
         path: 'admin',
         component: AdminComponent,
+        data: { name: 'Admin'},
         canActivate: [AuthGuard]
       },
+      { path: 'error',  data: { name: 'Error'}, component: ErrorPageComponent },
     ]),
     ReactiveFormsModule,
     FormsModule
