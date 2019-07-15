@@ -3,6 +3,7 @@ import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +22,7 @@ import { AdminComponent } from './admin/admin.component';
 import { GuardComponent } from './guard/guard.component';
 import { AuthGuard } from './auth.guard';
 import { EmployeesComponent } from './employees/employees.component';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,8 @@ import { EmployeesComponent } from './employees/employees.component';
     ErrorPageComponent,
     AdminComponent,
     GuardComponent,
-    EmployeesComponent
+    EmployeesComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
@@ -80,7 +83,8 @@ import { EmployeesComponent } from './employees/employees.component';
       { path: 'employees',  data: { name: 'Employees'}, component: EmployeesComponent },
     ]),
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
