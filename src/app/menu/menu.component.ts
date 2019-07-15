@@ -24,7 +24,7 @@ import {
   ]
 })
 export class MenuComponent implements OnInit {
-  isOpen = true;
+  isOpen = false;
 
   constructor() { }
 

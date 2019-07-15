@@ -4,5 +4,5 @@
 <a [routerLink]="['/cart']" class="button fancy-button"><i class="material-icons">shopping_cart</i>Checkout</a>
 
 <a [routerLink]="['/dashboard']" class="button fancy-button">Dashboard</a>
-<button>Menu</button>
-<app-menu></app-menu>
+<button class="button fancy-button" (click)="menu.showMenu()">Menu</button>
+<app-menu #menu></app-menu>
